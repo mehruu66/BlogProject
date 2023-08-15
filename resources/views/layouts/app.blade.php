@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title')</title>
+        <meta name="description" content="@yield('meta_description')">
+        <meta name="keywords" content="@yield('meta_keywords')">
+        <meta name="author" content="Mehreen Akhter">
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,29 +17,47 @@
 
         <!-- styles -->
         <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet" />
+        <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" />
+        <link href="{{asset('assets/css/owl.carousel.min.css')}}" rel="stylesheet" />
+        <link href="{{asset('assets/css/owl.theme.default.css')}}" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
+    <body>
+        <div id="app">
+            @include('layouts.inc.frontend-navbar')
+              <!-- Page Content -->
+              <main class="">
                @yield('content')
             </main>
+            @include('layouts.inc.frontend-footer')
         </div>
-        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
+          
+        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('assets/js/scripts.js')}}"></script>
+        <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        
+        <script>
+            $('.category-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                 dots:false,
+                responsive:{
+                    0:{
+                        items:2
+                    },
+                    600:{
+                        items:3
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+})
+        </script>
     </body>
 </html>

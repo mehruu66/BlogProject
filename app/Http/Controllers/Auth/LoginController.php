@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -19,16 +18,13 @@ class LoginController extends Controller
     // protected $redirectTo = '/home';
    public function authenticated(){
         if (Auth::user()->usertype== 'admin') {
-            $redirectTo=('/admin/dashboard')->
+            return redirect('/admin/dashboard')->
          with('status', 'Welcome to Admin Dashboard');
         }
         elseif (Auth::user()->usertype== 'user'){
             return redirect('/home')->
          with('status', 'Logged in succesfully');
-        }
-        else {
-            return redirect('/');
-        }
+        }        
     }
 
     /**

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\facades\Auth;
 
-
 class AdminMiddleware
 {
     /**
@@ -18,7 +17,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            if (Auth::user()->usertype== 'admin') {
+            if (Auth::user()->usertype=='1') {
                 return $next($request);
             }
             else {
@@ -30,4 +29,5 @@ class AdminMiddleware
         }
         
     }
+    
 }

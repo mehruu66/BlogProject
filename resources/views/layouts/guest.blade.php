@@ -11,12 +11,18 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- styles -->
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <link href="assets/css/owl.carousel.min.css" rel="stylesheet" />
+        <link href="assets/css/owl.theme.default.css" rel="stylesheet" />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 mt-5">
+            <div class="col-md-1 m-auto">
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
